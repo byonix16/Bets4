@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Aplicación JavaServer Faces</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<table>
+				<tr>
+					<td><p:commandButton value="Get Events"
+							action="#{createBean.getEventsDay}" update="eventDropdown" /></td>
+					<td><p:commandButton value="Create Question"
+							action="#{createBean.createQuestion}" /></td>
+				</tr>
+				<tr>
+					<td><p:calendar id="fecha" navigator="false" mode="inline">
+							<p:ajax event="dateSelect" listener="#{createBean.setDate}"></p:ajax>
+						</p:calendar></td>
+				</tr>
+				<tr>
+					<td><h:messages style="color:blue" /></td>
+				</tr>
+
+				<tr>
+					<td><p:selectOneMenu id="eventDropdown"
+							value="#{createBean.eventstr}">
+							<f:selectItems value="#{createBean.eventos}" var="evento"
+								itemValue="#{evento.eventNumber}"
+								itemLabel="#{evento.description}" />
+							<p:ajax event="valueChange" listener="#{createBean.getEvento}"></p:ajax>
+						</p:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td>Descripción:</td>
+					<td><h:inputText id="descripcion"
+							value="#{createBean.descripcion}">
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td>Min bet:</td>
+					<td><h:inputText id="minbet" value="#{createBean.minbet}">
+						</h:inputText></td>
+				</tr>
+			</table>
+			
+		</h:form>
+		<td><p:commandButton value="Volver a inicio"
+							action="#{createBean.volverInicio}" /></td>
+
+	</h:body>
+</f:view>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf17184518590590" configfile="/Bets4/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Inicio.xhtml" x="290" y="345" id="pf17184543668931" outlinks="pf17184543668932 pf17184543668933" inlinks="pf17184543668944 pf17184543668945" path="/Inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="600" y="410" id="pf17184543668946" outlinks="pf17184543668945 pf17184543668947" inlinks="pf17184543668932 pf17184543668947" path="/QueryQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="612" y="228" id="pf17184543668948" outlinks="pf17184543668944" inlinks="pf17184543668933" path="/CreateQuestions.xhtml"/>
+  <links id="pf17184543668932" target="pf17184543668946" source="pf17184543668931" outcome="Query"/>
+  <links id="pf17184543668933" target="pf17184543668948" source="pf17184543668931" outcome="Create"/>
+  <links id="pf17184543668944" target="pf17184543668931" source="pf17184543668948" outcome="Inicio"/>
+  <links id="pf17184543668945" target="pf17184543668931" source="pf17184543668946" outcome="Inicio"/>
+  <links id="pf17184543668947" target="pf17184543668946" source="pf17184543668946" outcome="Rerender">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

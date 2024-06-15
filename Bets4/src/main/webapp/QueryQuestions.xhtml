@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Aplicación JavaServer Faces</title>
+	</h:head>
+	<h:body>
+		<h:form id="mainForm">
+			<table>
+				<tr>
+					<td><p:commandButton value="Get Events"
+							action="#{queryBean1.getEventsDay}" update="eventDropdown" /></td>
+					<td><p:commandButton value="Query Questions"
+							action="#{queryBean1.queryQuestions}" /></td>
+				</tr>
+				<tr>
+					<td><p:calendar id="fecha" navigator="false" mode="inline">
+							<p:ajax event="dateSelect" listener="#{queryBean1.setDate}"></p:ajax>
+						</p:calendar></td>
+				</tr>
+				<tr>
+					<td><h:messages style="color:blue" /></td>
+				</tr>
+
+				<tr>
+					<td><p:selectOneMenu id="eventDropdown"
+							value="#{queryBean1.eventstr}">
+							<f:selectItems value="#{queryBean1.eventos}" var="evento"
+								itemValue="#{evento.eventNumber}"
+								itemLabel="#{evento.description}" />
+							<p:ajax event="valueChange" listener="#{queryBean1.getEvento}"></p:ajax>
+						</p:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td>
+					<table id="questionsTable">
+				<tr>
+					<th>Event</th>
+					<th>Numero</th>
+					<th>Pregunta</th>
+					<th>Betminimum</th>
+					<th>Resultado</th>
+				</tr>
+
+				<ui:repeat var="quest" value="#{queryBean1.questions}">
+					<tr>
+						<td>#{quest.event.eventNumber}</td>
+						<td>#{quest.questionNumber}</td>
+						<td>#{quest.question}</td>
+						<td>#{quest.betMinimum}</td>
+						<td>#{quest.result}</td>
+					</tr>
+				</ui:repeat>
+			</table>
+					</td>
+				</tr>
+			</table>
+		</h:form>
+		<td><p:commandButton value="Volver a inicio"
+				action="#{queryBean1.volverInicio}" /></td>
+	</h:body>
+</f:view>
+</html>

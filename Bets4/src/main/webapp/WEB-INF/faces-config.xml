@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+	<managed-bean>
+		<managed-bean-name>createBean</managed-bean-name>
+		<managed-bean-class>modelo.bean.CreateBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>inicio</managed-bean-name>
+		<managed-bean-class>modelo.bean.InicioBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>queryBean1</managed-bean-name>
+		<managed-bean-class>modelo.bean.QueryBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Inicio.xhtml</display-name>
+		<from-view-id>/Inicio.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Query</from-outcome>
+			<to-view-id>/QueryQuestions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Inicio.xhtml</display-name>
+		<from-view-id>/Inicio.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Create</from-outcome>
+			<to-view-id>/CreateQuestions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>CreateQuestions.xhtml</display-name>
+		<from-view-id>/CreateQuestions.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Inicio</from-outcome>
+			<to-view-id>/Inicio.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>QueryQuestions.xhtml</display-name>
+		<from-view-id>/QueryQuestions.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Inicio</from-outcome>
+			<to-view-id>/Inicio.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>QueryQuestions.xhtml</display-name>
+		<from-view-id>/QueryQuestions.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Rerender</from-outcome>
+			<to-view-id>/QueryQuestions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
