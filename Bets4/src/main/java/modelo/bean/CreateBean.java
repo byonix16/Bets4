@@ -2,20 +2,12 @@ package modelo.bean;
 
 import domain.Event;
 import domain.Question;
-import exceptions.EventFinished;
-import exceptions.QuestionAlreadyExist;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
-import javax.faces.bean.ViewScoped;
-import javax.faces.bean.ManagedBean;
-
-import javax.faces.event.AjaxBehaviorEvent;
 
 import org.primefaces.event.SelectEvent;
 import businessLogic.BLFacadeImplementation;
@@ -33,7 +25,6 @@ public class CreateBean {
 	private String minbet;
 
 	public CreateBean() {
-		// TODO Auto-generated constructor stub
 		blf = InicioBean.getBLF();
 		eventos = blf.getEvents(new Date());
 		eventstr = "";
@@ -145,10 +136,8 @@ public class CreateBean {
 			System.out.println("Descripcion: " + descripcion);
 			System.out.println("Minbet: " + minbet);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Bet minimun debe ser un numero");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("Ya existe un evento con esta descripcion");
 		}
 	}
